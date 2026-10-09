@@ -1,0 +1,6 @@
+- Use TanStack Start file routes and a shared site shell; this preserves SSR, type-safe navigation, and reusable site chrome.
+- Keep business content and CMS-ready entity types in src/data, separate from page components; future content sources can replace static data without redesigning the frontend.
+- Build page metadata and JSON-LD through shared SEO helpers; never add offers, prices, availability, or product schema without actual product records.
+- Analytics IDs are optional VITE environment variables, and external analytics loads only after visitor consent; contact events work without tracking IDs.
+- Enquiries currently hand off to WhatsApp rather than claiming database delivery; add authenticated server persistence only when an online enquiry system is requested.
+- Defer sitemap installation until the public site URL is known and use the official router-derived recipe; never substitute a preview hostname.

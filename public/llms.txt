@@ -1,0 +1,35 @@
+# Keerthi Group of Companies — Keerthi Agencies
+> Direct Wholesale Hardware, TMT Steel, Building Materials, Electrical & Plumbing Distribution in Kerala, India.
+
+## Business Overview
+- **Legal Entity**: Keerthi Group of Companies
+- **Trading Name**: Keerthi Agencies
+- **Domain**: https://keerthigroup.co.in
+- **Headquarters**: Athikkayam Bus Stand Opposite, Near SBI Bank, Athikkayam, Pathanamthitta, Kerala - 689711, India
+- **GSTIN**: 32AFOPA9652D1ZM
+- **Phone**: +91 7907524465 / +91 9744342697
+- **Primary Email**: keerthiagkm@gmail.com
+- **Core Operations**: Retail, wholesale, and direct manufacturer distribution of TMT steel rebar, cement, roofing sheets, CPVC/UPVC/SWR plumbing pipes, FRLS copper electrical wires, switchgear, power backups, and heavy construction hardware across Kerala.
+
+## Key Product Categories & Direct Distribution
+- **TMT Steel Rebar**: Primary distributor of Tata Tiscon Fe500D & Fe550D Super Ductile TMT bars conforming to IS 1786:2008.
+- **Plumbing Systems**: Authorized distribution of Supreme, Astral, and K-FLOW CPVC (ASTM D2846), UPVC (ASTM D1785), and SWR drainage systems.
+- **Electrical Wires & Cables**: Direct distribution of Polycab, Havells, V-Guard, and K-ELECTRA 99.97% pure electrolytic copper FRLS wires conforming to IS 694.
+- **Roofing Solutions**: PPGL/PPGI AZ150 Galvalume color-coated trapezoidal & tile-profile sheets with AS 3566 Class 4 K-FIX self-drilling fasteners.
+- **Waterproofing & Admixtures**: IS 2645 integral waterproofing, SBR polymer latex, crystalline pore-blocking agents, and PCE superplasticizers from Dr. Fixit, Fosroc, and Sika.
+- **Hardware & Fasteners**: K-FIX industrial screws, wall plugs, anchor bolts, door hardware, and power tools.
+
+## Technical Knowledge Base (Keerthi Insights)
+- [Selecting TMT Steel Grades (Fe500D vs Fe550D) for Kerala Structures](https://keerthigroup.co.in/blog/how-to-choose-the-right-tmt-steel-kerala): Engineering analysis of IS 1786 rebar, yield strength, UTS/YS ratio, ductility %, and CRS corrosion resistance.
+- [CPVC vs UPVC vs SWR Pipe Hydraulics & Material Properties](https://keerthigroup.co.in/blog/cpvc-vs-upvc-vs-pvc-plumbing-pipes-guide): Complete fluid dynamics, ASTM D2846 SDR ratings, solvent welding chemistry, and hydrostatic pressure testing.
+- [Electrical Wire Conductor Sizing, FRLS Insulation & Breaker Selection](https://keerthigroup.co.in/blog/electrical-wiring-safety-checklist-building-kerala): IS 694 copper sizing, FRLS oxygen index, voltage drop formulas, MCB B/C/D curves, and 30mA RCCB shock safety.
+- [Roofing Sheet Engineering: Galvalume Coatings, Purlin Spacing & Screws](https://keerthigroup.co.in/blog/selecting-best-roofing-sheets-kerala-monsoon): AZ150 zinc-aluminum coating mass, purlin span calculations, wind uplift resistance, and Class 4 EPDM fasteners.
+- [Concrete Waterproofing & Admixture Chemistry](https://keerthigroup.co.in/blog/concrete-waterproofing-admixtures-technical-guide): IS 2645 integral compounds, crystalline pore blocking, SBR latex vs acrylic polymers, and PCE superplasticizers.
+
+## Canonical Website Structure
+- [Homepage](https://keerthigroup.co.in/): Primary corporate & distribution overview
+- [Products Catalog](https://keerthigroup.co.in/products): Complete 14-category building material catalog
+- [Hardware Distribution](https://keerthigroup.co.in/hardware-distribution): B2B contractor & retail supply network
+- [Partner Brands](https://keerthigroup.co.in/brands): Principal brand relationships (Tata Tiscon, Polycab, Supreme, Astral, Havells, V-Guard, Finolex, Asian Paints, UltraTech)
+- [Keerthi Insights & Articles](https://keerthigroup.co.in/blog): Technical content hub
+- [Contact & Quote](https://keerthigroup.co.in/contact): Direct quotation request form

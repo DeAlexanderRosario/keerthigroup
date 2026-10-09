@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <circle cx="32" cy="40" r="16" fill="none" stroke="#F97316" stroke-width="4"/>
+  <circle cx="32" cy="40" r="8" fill="#F97316"/>
+  <text x="60" y="48" font-family="'Arial Black', Arial, sans-serif" font-size="26" font-weight="900" fill="#FFFFFF" letter-spacing="2">BAJAJ</text>
+</svg>
