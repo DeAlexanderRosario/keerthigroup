@@ -1217,6 +1217,10 @@
   margin-bottom: 12px
 }
 
-/* ── PREMIUM ANIMATION KEYFRAMES ─────────────────────────────────────────── */
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px)
+  }
 
-  
+   
