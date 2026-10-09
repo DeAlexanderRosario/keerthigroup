@@ -40,18 +40,18 @@ import { openQuoteModal } from './quote-modal';
 import construction from '@/assets/construction.webp';
 import fasteners from '@/assets/fasteners.webp';
 import warehouse from '@/assets/warehouse.webp';
-import keerthiLogo from '@/assets/keerthi-logo.png';
+import keerthiLogo from '@/assets/keerthi-logo.svg';
 import { trackEvent } from '@/lib/analytics';
 
-export function Logo({ className = "h-11 sm:h-14" }: { className?: string }) {
+export function Logo({ className = "h-10 sm:h-12" }: { className?: string }) {
     return (
-        <span className="inline-flex items-center gap-2 group cursor-pointer py-1">
+        <span className="inline-flex items-center group cursor-pointer py-1">
             <img
                 src={keerthiLogo}
                 alt="Keerthi Agencies — Keerthi Group of Companies"
-                className={`${className} w-auto object-contain transition-transform group-hover:scale-105 drop-shadow-sm`}
-                width={180}
-                height={56}
+                className={`${className} w-auto object-contain transition-transform group-hover:scale-105`}
+                width={220}
+                height={50}
             />
         </span>
     );

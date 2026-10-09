@@ -1848,12 +1848,12 @@
   }
 }
 
-/* ── MINIMAL WHITE BRAND CARDS ──────────────────────────────────────────── */
+/* ── COMPACT MINIMAL WHITE BRAND CARDS ──────────────────────────────────── */
 
 .brand-globe-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 10px;
 }
 
 @media(min-width: 480px) {
@@ -1881,28 +1881,28 @@
 }
 
 .brand-globe-card {
-  border-radius: 10px;
+  border-radius: 8px;
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e9ecef;
   cursor: pointer;
-  transition: box-shadow 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .brand-globe-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  border-color: #d1d5db;
-  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: #cbd5e1;
 }
 
 .brand-globe-inner {
-  border-radius: 10px;
+  border-radius: 8px;
   background: #ffffff;
-  padding: 16px 12px 12px;
+  padding: 12px 10px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  min-height: 110px;
+  justify-content: center;
+  gap: 6px;
+  min-height: 84px;
 }
 
 .brand-globe-inner::before {
@@ -1911,7 +1911,7 @@
 
 .brand-globe-logo {
   width: 100%;
-  height: 52px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1919,35 +1919,31 @@
   overflow: hidden;
 }
 
-.brand-globe-card:hover .brand-globe-logo {
-  background: transparent;
-}
-
 .brand-globe-logo img {
-  max-height: 38px;
-  max-width: 90%;
+  max-height: 30px;
+  max-width: 86%;
   width: auto;
   object-fit: contain;
-  transition: transform 0.22s ease;
+  transition: transform 0.2s ease;
 }
 
 .brand-globe-card:hover .brand-globe-logo img {
-  transform: scale(1.06);
+  transform: scale(1.04);
 }
 
 .brand-globe-meta {
   width: 100%;
   text-align: center;
   border-top: 1px solid #f1f5f9;
-  padding-top: 7px;
+  padding-top: 5px;
 }
 
 .brand-globe-category {
   font-size: 10px;
-  font-weight: 600;
-  color: #6b7280;
-  line-height: 1.3;
-  letter-spacing: 0.2px;
+  font-weight: 500;
+  color: #64748b;
+  line-height: 1.2;
+  letter-spacing: 0.1px;
 }
 
 .brand-globe-tag {

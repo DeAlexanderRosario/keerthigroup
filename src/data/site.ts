@@ -290,18 +290,6 @@ export const trustedBrands: BrandPartner[] = [
         verified: true
     },
     {
-        name: 'DR. FIXIT',
-        category: 'Waterproofing Chemicals',
-        tag: 'Chemical Partner',
-        brandColor: '#F5A623',
-        textColor: '#0F172A',
-        accentBg: '#1E293B',
-        logoSub: 'WATERPROOFING',
-        logoUrl: '/images/brands/dr-fixit.svg',
-        alt: 'Dr. Fixit Waterproofing official logo',
-        verified: true
-    },
-    {
         name: 'BOSCH',
         category: 'Power Tools',
         tag: 'Professional Tools',
@@ -381,17 +369,6 @@ export const trustedBrands: BrandPartner[] = [
         verified: true
     },
     {
-        name: 'CROMPTON',
-        category: 'Fans & LED Lighting',
-        tag: 'Distribution Channel',
-        brandColor: '#2563EB',
-        textColor: '#FFFFFF',
-        accentBg: '#1E293B',
-        logoUrl: '/images/brands/crompton.svg',
-        alt: 'Crompton Greaves official logo',
-        verified: true
-    },
-    {
         name: 'PHILIPS',
         category: 'LED Lighting',
         tag: 'Lighting Partner',
@@ -422,28 +399,6 @@ export const trustedBrands: BrandPartner[] = [
         accentBg: '#1E293B',
         logoUrl: '/images/brands/bajaj.svg',
         alt: 'Bajaj Electricals official logo',
-        verified: true
-    },
-    {
-        name: 'KEI',
-        category: 'Wires & Cables',
-        tag: 'Wire Distributor',
-        brandColor: '#FF6600',
-        textColor: '#FFFFFF',
-        accentBg: '#1E293B',
-        logoUrl: '/images/brands/kei.svg',
-        alt: 'KEI Industries Wires official logo',
-        verified: true
-    },
-    {
-        name: 'RR KABEL',
-        category: 'Cables & Wires',
-        tag: 'Cable Distributor',
-        brandColor: '#FF3300',
-        textColor: '#FFFFFF',
-        accentBg: '#1E293B',
-        logoUrl: '/images/brands/rr-kabel.svg',
-        alt: 'RR Kabel official logo',
         verified: true
     },
     {

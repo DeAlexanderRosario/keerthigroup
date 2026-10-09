@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
-  <circle cx="32" cy="40" r="16" fill="none" stroke="#F97316" stroke-width="4"/>
-  <circle cx="32" cy="40" r="8" fill="#F97316"/>
-  <text x="60" y="48" font-family="'Arial Black', Arial, sans-serif" font-size="26" font-weight="900" fill="#FFFFFF" letter-spacing="2">BAJAJ</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" width="220" height="80">
+  <!-- Bajaj chevron mark -->
+  <polygon points="10,20 30,20 44,40 30,60 10,60 24,40" fill="#F97316"/>
+  <polygon points="24,40 30,60 10,60" fill="#ea6a0a"/>
+  <!-- BAJAJ text -->
+  <text x="54" y="44" font-family="'Arial Black',Arial,sans-serif" font-size="24" font-weight="900" fill="#1a1a1a" letter-spacing="0.5">BAJAJ</text>
+  <text x="54" y="58" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#F97316" letter-spacing="1.5">ELECTRICALS</text>
 </svg>

@@ -1,3 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
-  <text x="100" y="52" font-family="'Arial Black', 'Helvetica Neue', sans-serif" font-size="28" font-weight="900" fill="#E30613" text-anchor="middle" letter-spacing="1">POLYCAB</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <g transform="translate(12, 10)">
+    <!-- Red Quadrant / Flame Mark -->
+    <path d="M 0,30 C 0,13.43 13.43,0 30,0 L 30,30 Z" fill="#E30613" />
+    <path d="M 36,0 L 36,30 L 66,30 C 66,13.43 52.57,0 36,0 Z" fill="#E30613" />
+    <path d="M 0,36 L 30,36 L 30,66 C 13.43,66 0,52.57 0,36 Z" fill="#E30613" />
+    <path d="M 36,36 C 52.57,36 66,49.43 66,66 L 36,66 Z" fill="#E30613" stroke="#fff" stroke-width="2" />
+  </g>
+  <!-- POLYCAB Wordmark -->
+  <text x="88" y="44" font-family="'Helvetica Neue', Arial, 'Arial Black', sans-serif" font-size="28" font-weight="900" fill="#E30613" letter-spacing="0.5">POLYCAB</text>
+  <text x="90" y="58" font-family="Arial, sans-serif" font-size="8.5" font-weight="700" fill="#555555" letter-spacing="1.8">WIRES &amp; CABLES</text>
 </svg>

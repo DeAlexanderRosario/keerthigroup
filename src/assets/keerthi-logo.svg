@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" width="280" height="64">
+  <defs>
+    <!-- Premium Gold Metallic Gradients -->
+    <linearGradient id="gold-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D061" />
+      <stop offset="30%" stop-color="#E6B325" />
+      <stop offset="70%" stop-color="#996D13" />
+      <stop offset="100%" stop-color="#D4AF37" />
+    </linearGradient>
+    
+    <linearGradient id="gold-light" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3A7" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#996D13" />
+    </linearGradient>
+
+    <linearGradient id="gold-text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B8860B" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#996D13" />
+    </linearGradient>
+
+    <filter id="subtle-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <g filter="url(#subtle-shadow)">
+    <!-- Symbol: Stylized Serif K with Dual Leaf Wings -->
+    <!-- Left Stem of K -->
+    <path d="M 12 10 H 22 V 14 L 18 16 V 48 L 22 50 V 54 H 12 V 50 L 16 48 V 16 L 12 14 Z" fill="url(#gold-primary)" />
+    
+    <!-- K Upper Diagonal & Joint -->
+    <path d="M 18 30 L 32 14 H 39 L 24 32 Z" fill="url(#gold-light)" />
+    
+    <!-- K Lower Diagonal Stem -->
+    <path d="M 23 30 L 39 50 L 44 54 H 34 L 19 35 Z" fill="url(#gold-primary)" />
+    
+    <!-- Leaf Feather 1 (Top wing) -->
+    <path d="M 25 28 C 30 18, 42 10, 52 6 C 46 14, 38 22, 25 28 Z" fill="url(#gold-light)" />
+    
+    <!-- Leaf Feather 2 (Middle wing) -->
+    <path d="M 28 32 C 34 26, 44 20, 50 16 C 45 22, 38 28, 28 32 Z" fill="url(#gold-primary)" />
+    
+    <!-- Vertical Subtle Divider Line -->
+    <line x1="60" y1="12" x2="60" y2="52" stroke="url(#gold-primary)" stroke-width="1" opacity="0.35" />
+
+    <!-- Typography: KEERTHI -->
+    <text x="72" y="34" font-family="'Times New Roman', 'Cinzel', 'Georgia', serif" font-size="24" font-weight="800" fill="url(#gold-text)" letter-spacing="2.5">KEERTHI</text>
+    
+    <!-- Subtitle: AGENCIES with Gold Accent Lines -->
+    <line x1="72" y1="46" x2="88" y2="46" stroke="url(#gold-primary)" stroke-width="1.5" stroke-linecap="round" />
+    <text x="94" y="49" font-family="'Inter', 'Arial', sans-serif" font-size="8.5" font-weight="800" fill="#996D13" letter-spacing="4.5">AGENCIES</text>
+    <line x1="172" y1="46" x2="188" y2="46" stroke="url(#gold-primary)" stroke-width="1.5" stroke-linecap="round" />
+
+    <!-- Subtitle Tagline: GROUP OF COMPANIES -->
+    <text x="72" y="59" font-family="'Inter', 'Arial', sans-serif" font-size="6.5" font-weight="700" fill="#64748B" letter-spacing="1.2">KEERTHI GROUP OF COMPANIES</text>
+  </g>
+</svg>
