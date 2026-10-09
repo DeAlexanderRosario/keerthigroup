@@ -18,7 +18,7 @@ import houseSmall from '@/assets/keerthi-house-small.webp';
 export const Route = createFileRoute('/')(({
   head: () =>
     pageHead(
-      'Keerthi Agencies — Hardware & Building Materials in Pathanamthitta',
+      'Hardware & Building Materials in Kerala | Keerthi',
       'Keerthi Group of Companies: retail, wholesale and hardware distribution in Kerala. Building materials, plumbing, electrical and home solutions in Athikkayam.',
       '/'
     ),
@@ -95,18 +95,19 @@ function Index() {
       {/* ── DISTRIBUTION BAND ────────────────────────────────────────────── */}
       <DistributionBand />
 
-      {/* ── TRUSTED BRANDS (30 brands, dark luxury grid) ─────────────────── */}
-      <section className="py-14 bg-slate-950 border-b border-amber-500/20">
+      {/* ── TRUSTED BRANDS (30 brands, clean white grid) ──────────────────── */}
+      <section className="py-14 bg-white border-b border-slate-100">
         <div className="site-width">
 
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full mb-3">
-              Official Distribution Network
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
+              Our Manufacturer Partners
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-white">
-              LEADING MANUFACTURER PARTNERS
+            <div className="w-10 h-0.5 bg-amber-500 mx-auto mb-4" />
+            <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-slate-900">
+              Leading Manufacturer Partners
             </h2>
-            <p className="text-sm text-slate-400 mt-3 max-w-lg mx-auto">
+            <p className="text-sm text-slate-500 mt-3 max-w-lg mx-auto">
               Direct wholesale distribution relationships with India's most respected brands — from TMT steel to electrical, pipes, paints, and power solutions.
             </p>
           </div>
@@ -119,9 +120,9 @@ function Index() {
                 View All Brand Partnerships <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="sm" className="border-slate-700 text-slate-300 hover:bg-slate-800">
+            <Button asChild variant="outline" size="sm" className="border-slate-200 text-slate-600 hover:bg-slate-50">
               <a href={business.whatsapp} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-1.5 h-3.5 w-3.5 text-emerald-400" /> WhatsApp for Availability
+                <MessageCircle className="mr-1.5 h-3.5 w-3.5 text-emerald-500" /> WhatsApp for Availability
               </a>
             </Button>
           </div>

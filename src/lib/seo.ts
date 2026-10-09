@@ -1,6 +1,6 @@
 import { business } from '@/data/site';
 
-const SITE_URL = 'https://keerthiagencies.com';
+const SITE_URL = 'https://keerthigroup.co.in';
 
 export function getFullUrl(path: string): string {
     const cleanPath = path.startsWith('/') ? path : `/${path}`;

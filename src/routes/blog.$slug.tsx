@@ -154,6 +154,8 @@ function SingleBlogPage() {
                     <img
                         src={post.featuredImage}
                         alt={post.imageAlt}
+                        width={1200}
+                        height={675}
                         className="w-full h-[320px] sm:h-[450px] object-cover"
                     />
                     <figcaption className="p-3 text-xs text-center text-slate-500 bg-slate-50 border-t border-slate-200">

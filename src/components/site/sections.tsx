@@ -396,21 +396,17 @@ export function VerifiedStatistics() {
     );
 }
 
-/* 7. TRUSTED BRANDS — 3D GLOBE GLASSMORPHISM GRID */
+/* 7. TRUSTED BRANDS — MINIMAL WHITE GRID */
 export function TrustedBrands() {
     return (
         <div className="brand-globe-grid">
-            {trustedBrands.map((b, i) => (
+            {trustedBrands.map((b) => (
                 <div
                     key={b.name}
                     className="brand-globe-card"
-                    style={{
-                        '--orb-color': `${b.brandColor}55`,
-                        '--delay': `${(i % 6) * 0.18}s`,
-                    } as React.CSSProperties}
                 >
                     <div className="brand-globe-inner">
-                        {/* Logo orb */}
+                        {/* Logo */}
                         <div className="brand-globe-logo">
                             <img
                                 src={b.logoUrl}
@@ -424,7 +420,6 @@ export function TrustedBrands() {
                         {/* Meta */}
                         <div className="brand-globe-meta">
                             <div className="brand-globe-category">{b.category}</div>
-                            <span className="brand-globe-tag">✓ {b.tag}</span>
                         </div>
                     </div>
                 </div>

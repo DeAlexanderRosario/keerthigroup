@@ -128,8 +128,8 @@ For optimal structural safety and compliance with IS 456:2000, specify **Tata Ti
         status: 'Published',
         tags: ['TMT Steel', 'Fe500D', 'IS 1786', 'Structural Engineering', 'Tata Tiscon', 'Kerala Construction'],
         seo: {
-            seoTitle: 'TMT Steel Fe500D vs Fe550D Engineering Guide | Keerthi Agencies Kerala',
-            seoDescription: 'Technical analysis of TMT steel rebar grades according to IS 1786:2008. Compare Fe500D yield strength, UTS/YS ratio, ductility, CRS corrosion resistance and field test checks.',
+            seoTitle: 'TMT Steel Fe500D vs Fe550D: Kerala Guide | Keerthi',
+            seoDescription: 'Compare Fe500D and Fe550D TMT steel grades for Kerala construction. IS 1786:2008 yield strength, UTS/YS ratio, ductility, CRS corrosion resistance, and on-site quality checks.',
             keywords: ['TMT steel grade Fe500D', 'IS 1786 rebar specifications', 'Tata Tiscon distributor Kerala', 'corrosion resistant steel CRS'],
         },
         faqs: [
@@ -233,8 +233,8 @@ Keerthi Agencies stocks complete certified piping systems from **Supreme Industr
         status: 'Published',
         tags: ['Plumbing', 'CPVC', 'UPVC', 'ASTM D2846', 'Supreme Pipes', 'Hydrostatic Test', 'K-FLOW'],
         seo: {
-            seoTitle: 'CPVC vs UPVC vs PVC Pipe Engineering Manual | Keerthi Agencies',
-            seoDescription: 'Technical comparison of CPVC (ASTM D2846) and UPVC (ASTM D1785) plumbing pipes. Temperature limits, SDR pressure ratings, solvent cement fusion, and pressure testing protocols.',
+            seoTitle: 'CPVC vs UPVC vs PVC Pipes: Complete Guide | Keerthi',
+            seoDescription: 'Complete comparison of CPVC, UPVC, and SWR/PVC plumbing pipes for Kerala homes. SDR pressure ratings, hot-water limits, solvent cement fusion, and pressure testing protocols.',
             keywords: ['CPVC SDR 11 pressure rating', 'ASTM D2846 CPVC pipe Kerala', 'Supreme pipes distributor Pathanamthitta', 'hydrostatic pressure testing plumbing'],
         },
         faqs: [
@@ -343,8 +343,8 @@ Keerthi Agencies is an authorized distribution partner for **Polycab**, **Havell
         status: 'Published',
         tags: ['Electrical', 'FRLS Wires', 'IS 694', 'Polycab', 'Havells', 'MCB Sizing', 'K-ELECTRA'],
         seo: {
-            seoTitle: 'Electrical Wire Sizing & Circuit Protection Guide | Keerthi Agencies',
-            seoDescription: 'Technical guide to IS 694 copper wire conductor sizing, FRLS insulation parameters, voltage drop formulas, MCB curve selection (B, C, D) and 30mA RCCB earth protection.',
+            seoTitle: 'Electrical Wire Sizing & Safety Guide | Keerthi',
+            seoDescription: 'IS 694 copper wire sizing guide for Kerala buildings. FRLS insulation, voltage drop formulas, MCB curve selection (B, C, D), and 30mA RCCB earth-leakage protection.',
             keywords: ['Polycab FRLS wire price Kerala', 'wire sizing calculation 1.5mm 2.5mm', 'Havells MCB distributor Pathanamthitta', 'IS 694 copper cable specifications'],
         },
         faqs: [
@@ -438,8 +438,8 @@ Keerthi Agencies supplies high-grade **AZ150 Galvalume color-coated sheets**, ti
         status: 'Published',
         tags: ['Roofing Sheets', 'Galvalume AZ150', 'Purlin Spacing', 'K-FIX Screws', 'Kerala Monsoon', 'Building Materials'],
         seo: {
-            seoTitle: 'AZ150 Galvalume Roofing Sheet Engineering Guide | Keerthi Agencies',
-            seoDescription: 'Technical guide to AZ150 Galvalume metal roofing. Compare trapezoidal vs tile profiles, purlin spacing load calculations, wind uplift safety, and K-FIX Class 4 EPDM fasteners.',
+            seoTitle: 'Best Roofing Sheets for Kerala Monsoon | Keerthi',
+            seoDescription: 'AZ150 Galvalume vs GI roofing sheets for Kerala monsoon. Trapezoidal and tile profiles, purlin spacing calculations, wind uplift resistance, and K-FIX EPDM fastener guide.',
             keywords: ['AZ150 Galvalume sheet price Kerala', 'roofing purlin spacing calculation', 'K-FIX self drilling roofing screws', 'monsoon leakproof roofing Pathanamthitta'],
         },
         relatedProductSlug: 'roofing-sheets'
@@ -520,8 +520,8 @@ Keerthi Agencies stocks high-performance concrete admixtures, integral waterproo
         status: 'Published',
         tags: ['Waterproofing', 'Concrete Admixtures', 'IS 2645', 'SBR Latex', 'PCE Superplasticizer', 'Building Materials'],
         seo: {
-            seoTitle: 'Concrete Waterproofing & Admixture Chemistry Guide | Keerthi Agencies',
-            seoDescription: 'Technical manual on concrete waterproofing according to IS 2645. Crystalline pore blocking, SBR latex vs acrylic polymers, PCE superplasticizers, and leak-free application steps.',
+            seoTitle: 'Concrete Waterproofing Admixtures Guide | Keerthi',
+            seoDescription: 'IS 2645 concrete waterproofing guide for Kerala buildings. Crystalline pore-blocking technology, SBR latex vs acrylic polymers, PCE superplasticizers, and application steps.',
             keywords: ['concrete waterproofing chemicals Kerala', 'IS 2645 integral waterproofing', 'SBR latex price Pathanamthitta', 'PCE superplasticizer concrete admixture'],
         },
         faqs: [
