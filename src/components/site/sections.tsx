@@ -44,15 +44,15 @@ import keerthiLogo from '@/assets/keerthi-logo.svg';
 import { trackEvent } from '@/lib/analytics';
 import { Reveal, AnimatedCounter } from './scroll-reveal';
 
-export function Logo({ className = "h-10 sm:h-12" }: { className?: string }) {
+export function Logo({ className = "h-12 sm:h-14 lg:h-16" }: { className?: string }) {
     return (
         <span className="inline-flex items-center group cursor-pointer py-1">
             <img
                 src={keerthiLogo}
                 alt="Keerthi Agencies — Keerthi Group of Companies"
                 className={`${className} w-auto object-contain transition-transform group-hover:scale-105`}
-                width={220}
-                height={50}
+                width={260}
+                height={60}
             />
         </span>
     );
@@ -417,27 +417,32 @@ export function VerifiedStatistics() {
     );
 }
 
-/* 7. TRUSTED BRANDS — MINIMAL WHITE GRID */
+/* 7. TRUSTED BRANDS — CURATED MINIMALIST DESIGNER GRID */
 export function TrustedBrands() {
+    // Show top premier manufacturing partner brands
+    const featuredBrands = trustedBrands.slice(0, 6);
+
     return (
-        <div className="brand-globe-grid">
-            {trustedBrands.map((b, i) => (
-                <Reveal key={b.name} variant="scale" delay={Math.min(i * 40, 400)}>
-                    <div className="brand-globe-card" style={{ height: '100%' }}>
-                        <div className="brand-globe-inner">
-                            <div className="brand-globe-logo">
-                                <img
-                                    src={b.logoUrl}
-                                    alt={b.alt}
-                                    width={150}
-                                    height={40}
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div className="brand-globe-meta">
-                                <div className="brand-globe-category">{b.category}</div>
-                            </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {featuredBrands.map((b, i) => (
+                <Reveal key={b.name} variant="scale" delay={i * 60}>
+                    <div
+                        className="group relative rounded-xl border border-slate-200/80 bg-white p-4 shadow-xs hover:border-amber-400 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center text-center h-28"
+                    >
+                        <div className="h-10 w-full flex items-center justify-center mb-2">
+                            <img
+                                src={b.logoUrl}
+                                alt={b.alt}
+                                className="max-h-8 max-w-[110px] object-contain group-hover:scale-105 transition-transform duration-300"
+                                loading="lazy"
+                            />
                         </div>
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-800 font-display">
+                            {b.name}
+                        </span>
+                        <span className="text-[9px] font-semibold text-amber-600 mt-0.5">
+                            {b.category}
+                        </span>
                     </div>
                 </Reveal>
             ))}
@@ -823,6 +828,15 @@ export function RetailBand() {
 }
 
 export function ContactBand() {
+    let isContactPage = false;
+    try {
+        if (typeof window !== 'undefined' && window.location.pathname.includes('/contact')) {
+            isContactPage = true;
+        }
+    } catch { }
+
+    if (isContactPage) return null;
+
     return (
         <section className="section-divider">
             <div className="site-width contact-band">

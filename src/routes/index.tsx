@@ -52,16 +52,11 @@ function Index() {
           <p className="hero-description">
             Your trusted partner for hardware, building materials, construction products, plumbing, electrical and home solutions in Pathanamthitta, Kerala.
           </p>
-          <div className="hero-actions flex flex-wrap gap-3">
+          <div className="hero-actions">
             <Button asChild variant="gold">
               <Link to="/products">
-                Explore Products <ArrowRight className="ml-1 h-4 w-4" />
+                Explore Products <ArrowRight />
               </Link>
-            </Button>
-            <Button asChild className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-md hover:shadow-lg transition-all">
-              <a href="https://wa.me/917907524465?text=Hello%20Birla%20K%20Abraham%20(Keerthi%20Agencies),%20I%20want%20to%20enquire%20about%20building%20materials%20/%20hardware." target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-1.5 h-4 w-4 text-white" /> Quick WhatsApp Chat
-              </a>
             </Button>
             <Button asChild variant="goldOutline">
               <Link to="/contact">Contact Us</Link>

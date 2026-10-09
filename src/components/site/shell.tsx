@@ -74,39 +74,40 @@ function EnhancedFloatingWhatsApp() {
     const getWhatsAppUrl = (type: 'home' | 'dealer' | 'contractor') => {
         let msg = '';
         if (type === 'home') {
-            msg = `Hello Birla K Abraham (Keerthi Agencies),\n\nI am a Homeowner looking for building materials & hardware for my home in Pathanamthitta/Kerala.\n\nMaterials I need:\n- [ ] Cement / TMT Steel\n- [ ] Plumbing & Electrical\n- [ ] Paints / Roofing / Hardware\n\nPlease share current rates & availability. Thank you!`;
+            msg = `Hello Birla K Abraham (Keerthi Agencies),\n\nI am a Homeowner looking for building materials & hardware for my home.\n\nMaterials needed:\n- [ ] Cement / TMT Steel\n- [ ] Plumbing & Electrical\n- [ ] Paints / Hardware\n\nPlease share rates & availability. Thank you!`;
         } else if (type === 'dealer') {
-            msg = `Hello Birla K Abraham (Keerthi Agencies),\n\nI own a Retail Shop / Dealer Store and need wholesale hardware & building materials for resale.\n\nCategories needed:\n- [ ] Fasteners & Hardware\n- [ ] Electrical Wires & Accessories\n- [ ] Plumbing Pipes & Fittings\n- [ ] Inverters & Batteries\n\nPlease share wholesale dealer prices. Thank you!`;
+            msg = `Hello Birla K Abraham (Keerthi Agencies),\n\nI own a Retail Shop / Dealer Store and need wholesale hardware & materials for resale.\n\nPlease share dealer prices. Thank you!`;
         } else {
-            msg = `Hello Birla K Abraham (Keerthi Agencies),\n\nI am a Contractor / Builder looking for site supply & project commercial pricing.\n\nProject items needed:\n- [ ] TMT Reinforcement Steel & Cement\n- [ ] Plumbing & Drainage Pipes\n- [ ] Electrical Site Supplies\n\nPlease send quotation details. Thank you!`;
+            msg = `Hello Birla K Abraham (Keerthi Agencies),\n\nI am a Contractor / Builder looking for commercial site quotation.\n\nPlease send quotation details. Thank you!`;
         }
         return `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(msg)}`;
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <div className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end">
             {/* Popover Card */}
             {popoverOpen && (
-                <div className="mb-3 w-80 rounded-2xl border border-amber-500/30 bg-slate-900 p-4 shadow-2xl text-white animate-in fade-in slide-in-from-bottom-3 duration-200">
-                    <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+                <div className="mb-3 w-[calc(100vw-32px)] max-w-xs sm:w-80 rounded-2xl border border-amber-500/40 bg-slate-950/95 p-4 shadow-2xl backdrop-blur-xl text-white animate-in fade-in slide-in-from-bottom-3 duration-200">
+                    <div className="flex items-center justify-between pb-2.5 border-b border-slate-800">
                         <div>
-                            <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 block">
+                            <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 block">
                                 KEERTHI DIRECT WHATSAPP
                             </span>
-                            <h4 className="text-sm font-extrabold gold-gradient-text">
+                            <h4 className="text-sm font-extrabold text-amber-300">
                                 Chat with Birla K Abraham
                             </h4>
                         </div>
                         <button
                             onClick={() => setPopoverOpen(false)}
-                            className="text-slate-400 hover:text-white p-1 rounded-full hover:bg-slate-800 cursor-pointer"
+                            className="text-slate-400 hover:text-white p-1 rounded-full hover:bg-slate-800 transition-colors"
+                            aria-label="Close WhatsApp popover"
                         >
                             <X className="h-4 w-4" />
                         </button>
                     </div>
 
                     <p className="text-xs text-slate-300 my-2.5 leading-relaxed">
-                        What type of enquiry are you looking for? Tap to compose a ready-to-send message with zero typing:
+                        Select your requirement to start a direct 1-click conversation on WhatsApp:
                     </p>
 
                     <div className="space-y-2">
@@ -118,9 +119,9 @@ function EnhancedFloatingWhatsApp() {
                                 trackEvent('whatsapp_click', { type: 'homeowner' });
                                 setPopoverOpen(false);
                             }}
-                            className="flex items-center gap-2.5 rounded-xl border border-amber-500/20 bg-slate-800/80 p-2.5 text-xs text-slate-100 hover:border-amber-400 hover:bg-slate-800 transition-all group"
+                            className="flex items-center gap-3 rounded-xl border border-amber-500/20 bg-slate-900 p-2.5 text-xs text-slate-100 hover:border-amber-400 hover:bg-slate-850 transition-all group"
                         >
-                            <span className="text-base">🏡</span>
+                            <span className="text-lg">🏡</span>
                             <div>
                                 <span className="font-bold block text-slate-100 group-hover:text-amber-400">Homeowner / House Construction</span>
                                 <span className="text-[10px] text-slate-400">Materials for home build or renovation</span>
@@ -135,9 +136,9 @@ function EnhancedFloatingWhatsApp() {
                                 trackEvent('whatsapp_click', { type: 'dealer' });
                                 setPopoverOpen(false);
                             }}
-                            className="flex items-center gap-2.5 rounded-xl border border-amber-500/20 bg-slate-800/80 p-2.5 text-xs text-slate-100 hover:border-amber-400 hover:bg-slate-800 transition-all group"
+                            className="flex items-center gap-3 rounded-xl border border-amber-500/20 bg-slate-900 p-2.5 text-xs text-slate-100 hover:border-amber-400 hover:bg-slate-850 transition-all group"
                         >
-                            <span className="text-base">🏬</span>
+                            <span className="text-lg">🏬</span>
                             <div>
                                 <span className="font-bold block text-slate-100 group-hover:text-amber-400">Retail Shop / Dealer Supply</span>
                                 <span className="text-[10px] text-slate-400">Wholesale stock for hardware resale</span>
@@ -152,9 +153,9 @@ function EnhancedFloatingWhatsApp() {
                                 trackEvent('whatsapp_click', { type: 'contractor' });
                                 setPopoverOpen(false);
                             }}
-                            className="flex items-center gap-2.5 rounded-xl border border-amber-500/20 bg-slate-800/80 p-2.5 text-xs text-slate-100 hover:border-amber-400 hover:bg-slate-800 transition-all group"
+                            className="flex items-center gap-3 rounded-xl border border-amber-500/20 bg-slate-900 p-2.5 text-xs text-slate-100 hover:border-amber-400 hover:bg-slate-850 transition-all group"
                         >
-                            <span className="text-base">🏗️</span>
+                            <span className="text-lg">🏗️</span>
                             <div>
                                 <span className="font-bold block text-slate-100 group-hover:text-amber-400">Contractor / Site Project</span>
                                 <span className="text-[10px] text-slate-400">Bulk supply for commercial sites</span>
@@ -169,20 +170,20 @@ function EnhancedFloatingWhatsApp() {
                 {!popoverOpen && (
                     <button
                         onClick={() => setPopoverOpen(true)}
-                        className="hidden sm:flex items-center gap-1.5 rounded-full bg-slate-900/90 border border-amber-500/40 px-3.5 py-1.5 text-xs font-bold shadow-xl backdrop-blur-md hover:border-amber-400 transition-all cursor-pointer"
+                        className="hidden sm:flex items-center gap-2 rounded-full bg-slate-950/90 border border-amber-500/40 px-3.5 py-1.5 text-xs font-bold text-amber-400 shadow-xl backdrop-blur-md hover:border-amber-400 hover:scale-105 transition-all cursor-pointer"
                     >
                         <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-                        <span className="gold-gradient-text">Chat with Birla K Abraham</span>
+                        <span>Chat on WhatsApp</span>
                     </button>
                 )}
 
                 <button
                     onClick={() => setPopoverOpen(prev => !prev)}
-                    className="floating-whatsapp relative flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600 text-white shadow-2xl transition-all duration-300 hover:bg-emerald-500 hover:scale-105 cursor-pointer"
+                    className="relative flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-emerald-600 text-white shadow-xl hover:bg-emerald-500 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer border-2 border-amber-400/40"
                     aria-label="Open WhatsApp Instant Chat"
                 >
-                    <MessageCircle className="h-7 w-7" />
-                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500 text-[10px] font-bold text-slate-950 shadow-xs">
+                    <MessageCircle className="h-6 w-6" />
+                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500 text-[10px] font-black text-slate-950 shadow-sm">
                         1
                     </span>
                 </button>
