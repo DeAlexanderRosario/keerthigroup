@@ -127,6 +127,29 @@ export function QuoteModal() {
 
                 {/* Body Content */}
                 <div className="p-6 max-h-[75vh] overflow-y-auto">
+                    {/* Instant WhatsApp Quick Chat Banner */}
+                    {!submitted && (
+                        <div className="mb-5 p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-3">
+                            <div className="text-xs text-slate-800">
+                                <span className="font-bold text-emerald-800 block">Fastest Response via WhatsApp:</span>
+                                Chat directly with <span className="font-semibold">Birla K Abraham</span> for instant stock & prices.
+                            </div>
+                            <Button
+                                asChild
+                                size="sm"
+                                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold shrink-0 text-xs px-3 py-1.5 shadow-sm"
+                            >
+                                <a
+                                    href={`https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent('Hello Birla K Abraham (Keerthi Agencies), I have an enquiry about hardware / building materials.')}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <MessageCircle className="mr-1.5 h-4 w-4" /> Quick WhatsApp Chat
+                                </a>
+                            </Button>
+                        </div>
+                    )}
+
                     {submitted ? (
                         <div className="py-6 text-center space-y-5">
                             <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400">
@@ -174,8 +197,8 @@ export function QuoteModal() {
                                                     type="button"
                                                     onClick={() => toggleCategory(cat.name)}
                                                     className={`flex items-center gap-2.5 rounded-lg border p-3 text-left transition-all ${isSelected
-                                                            ? 'border-amber-500 bg-amber-500/10 font-semibold text-amber-900 dark:text-amber-300'
-                                                            : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-amber-300 dark:border-slate-800 dark:bg-slate-800/50 dark:text-slate-300'
+                                                        ? 'border-amber-500 bg-amber-500/10 font-semibold text-amber-900 dark:text-amber-300'
+                                                        : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-amber-300 dark:border-slate-800 dark:bg-slate-800/50 dark:text-slate-300'
                                                         }`}
                                                 >
                                                     <div className={`h-4 w-4 rounded border flex items-center justify-center ${isSelected ? 'bg-amber-500 border-amber-500 text-white' : 'border-slate-400'}`}>

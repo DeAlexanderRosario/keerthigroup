@@ -68,6 +68,129 @@ function AnalyticsConsent() {
     );
 }
 
+function EnhancedFloatingWhatsApp() {
+    const [popoverOpen, setPopoverOpen] = useState(false);
+
+    const getWhatsAppUrl = (type: 'home' | 'dealer' | 'contractor') => {
+        let msg = '';
+        if (type === 'home') {
+            msg = `Hello Birla K Abraham (Keerthi Agencies),\n\nI am a Homeowner looking for building materials & hardware for my home in Pathanamthitta/Kerala.\n\nMaterials I need:\n- [ ] Cement / TMT Steel\n- [ ] Plumbing & Electrical\n- [ ] Paints / Roofing / Hardware\n\nPlease share current rates & availability. Thank you!`;
+        } else if (type === 'dealer') {
+            msg = `Hello Birla K Abraham (Keerthi Agencies),\n\nI own a Retail Shop / Dealer Store and need wholesale hardware & building materials for resale.\n\nCategories needed:\n- [ ] Fasteners & Hardware\n- [ ] Electrical Wires & Accessories\n- [ ] Plumbing Pipes & Fittings\n- [ ] Inverters & Batteries\n\nPlease share wholesale dealer prices. Thank you!`;
+        } else {
+            msg = `Hello Birla K Abraham (Keerthi Agencies),\n\nI am a Contractor / Builder looking for site supply & project commercial pricing.\n\nProject items needed:\n- [ ] TMT Reinforcement Steel & Cement\n- [ ] Plumbing & Drainage Pipes\n- [ ] Electrical Site Supplies\n\nPlease send quotation details. Thank you!`;
+        }
+        return `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+    };
+
+    return (
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+            {/* Popover Card */}
+            {popoverOpen && (
+                <div className="mb-3 w-80 rounded-2xl border border-amber-500/30 bg-slate-900 p-4 shadow-2xl text-white animate-in fade-in slide-in-from-bottom-3 duration-200">
+                    <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+                        <div>
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 block">
+                                KEERTHI DIRECT WHATSAPP
+                            </span>
+                            <h4 className="text-sm font-extrabold gold-gradient-text">
+                                Chat with Birla K Abraham
+                            </h4>
+                        </div>
+                        <button
+                            onClick={() => setPopoverOpen(false)}
+                            className="text-slate-400 hover:text-white p-1 rounded-full hover:bg-slate-800 cursor-pointer"
+                        >
+                            <X className="h-4 w-4" />
+                        </button>
+                    </div>
+
+                    <p className="text-xs text-slate-300 my-2.5 leading-relaxed">
+                        What type of enquiry are you looking for? Tap to compose a ready-to-send message with zero typing:
+                    </p>
+
+                    <div className="space-y-2">
+                        <a
+                            href={getWhatsAppUrl('home')}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => {
+                                trackEvent('whatsapp_click', { type: 'homeowner' });
+                                setPopoverOpen(false);
+                            }}
+                            className="flex items-center gap-2.5 rounded-xl border border-amber-500/20 bg-slate-800/80 p-2.5 text-xs text-slate-100 hover:border-amber-400 hover:bg-slate-800 transition-all group"
+                        >
+                            <span className="text-base">🏡</span>
+                            <div>
+                                <span className="font-bold block text-slate-100 group-hover:text-amber-400">Homeowner / House Construction</span>
+                                <span className="text-[10px] text-slate-400">Materials for home build or renovation</span>
+                            </div>
+                        </a>
+
+                        <a
+                            href={getWhatsAppUrl('dealer')}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => {
+                                trackEvent('whatsapp_click', { type: 'dealer' });
+                                setPopoverOpen(false);
+                            }}
+                            className="flex items-center gap-2.5 rounded-xl border border-amber-500/20 bg-slate-800/80 p-2.5 text-xs text-slate-100 hover:border-amber-400 hover:bg-slate-800 transition-all group"
+                        >
+                            <span className="text-base">🏬</span>
+                            <div>
+                                <span className="font-bold block text-slate-100 group-hover:text-amber-400">Retail Shop / Dealer Supply</span>
+                                <span className="text-[10px] text-slate-400">Wholesale stock for hardware resale</span>
+                            </div>
+                        </a>
+
+                        <a
+                            href={getWhatsAppUrl('contractor')}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => {
+                                trackEvent('whatsapp_click', { type: 'contractor' });
+                                setPopoverOpen(false);
+                            }}
+                            className="flex items-center gap-2.5 rounded-xl border border-amber-500/20 bg-slate-800/80 p-2.5 text-xs text-slate-100 hover:border-amber-400 hover:bg-slate-800 transition-all group"
+                        >
+                            <span className="text-base">🏗️</span>
+                            <div>
+                                <span className="font-bold block text-slate-100 group-hover:text-amber-400">Contractor / Site Project</span>
+                                <span className="text-[10px] text-slate-400">Bulk supply for commercial sites</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            )}
+
+            {/* Main Floating Trigger Button */}
+            <div className="flex items-center gap-2">
+                {!popoverOpen && (
+                    <button
+                        onClick={() => setPopoverOpen(true)}
+                        className="hidden sm:flex items-center gap-1.5 rounded-full bg-slate-900/90 border border-amber-500/40 px-3.5 py-1.5 text-xs font-bold shadow-xl backdrop-blur-md hover:border-amber-400 transition-all cursor-pointer"
+                    >
+                        <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
+                        <span className="gold-gradient-text">Chat with Birla K Abraham</span>
+                    </button>
+                )}
+
+                <button
+                    onClick={() => setPopoverOpen(prev => !prev)}
+                    className="floating-whatsapp relative flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600 text-white shadow-2xl transition-all duration-300 hover:bg-emerald-500 hover:scale-105 cursor-pointer"
+                    aria-label="Open WhatsApp Instant Chat"
+                >
+                    <MessageCircle className="h-7 w-7" />
+                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500 text-[10px] font-bold text-slate-950 shadow-xs">
+                        1
+                    </span>
+                </button>
+            </div>
+        </div>
+    );
+}
+
 export function SiteShell({ children }: { children: ReactNode }) {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -180,17 +303,8 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 </div>
             </footer>
 
-            {/* Floating Action Button */}
-            <a
-                className="floating-whatsapp"
-                href={business.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Chat with Keerthi on WhatsApp"
-                onClick={() => trackEvent('whatsapp_click')}
-            >
-                <MessageCircle size={26} />
-            </a>
+            {/* Enhanced Floating WhatsApp Conversion Widget */}
+            <EnhancedFloatingWhatsApp />
 
             {/* Mobile Sticky Bar */}
             <div className="mobile-contact">
@@ -207,7 +321,12 @@ export function SiteShell({ children }: { children: ReactNode }) {
                     className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold"
                     asChild
                 >
-                    <a href={business.whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('whatsapp_click')}>
+                    <a
+                        href={`https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent('Hello Birla K Abraham (Keerthi Agencies), I would like to enquire about building materials / hardware.')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackEvent('whatsapp_click')}
+                    >
                         <MessageCircle className="mr-1 h-3.5 w-3.5" /> WhatsApp
                     </a>
                 </Button>

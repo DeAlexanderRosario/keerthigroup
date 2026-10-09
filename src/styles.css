@@ -1217,6 +1217,8 @@
   margin-bottom: 12px
 }
 
+/* ── PREMIUM ANIMATION KEYFRAMES ─────────────────────────────────────────── */
+
 @keyframes enter {
   from {
     opacity: 0;
@@ -1229,9 +1231,482 @@
   }
 }
 
-.hero-content {
-  animation: enter .6s ease-out
+/* Hero staggered entrance */
+@keyframes hero-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(28px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
 }
+
+@keyframes hero-rule-grow {
+  0% {
+    width: 0;
+    opacity: 0
+  }
+
+  100% {
+    width: 64px;
+    opacity: 1
+  }
+}
+
+@keyframes hero-slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-18px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+
+/* Logo shimmer sweep */
+@keyframes logo-shimmer {
+  0% {
+    background-position: -200% center
+  }
+
+  100% {
+    background-position: 200% center
+  }
+}
+
+/* Nav links drop-in */
+@keyframes nav-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+/* Scroll-reveal generic */
+@keyframes reveal-up {
+  0% {
+    opacity: 0;
+    transform: translateY(36px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+@keyframes reveal-left {
+  0% {
+    opacity: 0;
+    transform: translateX(30px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+
+@keyframes reveal-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+
+@keyframes reveal-scale {
+  0% {
+    opacity: 0;
+    transform: scale(0.93)
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1)
+  }
+}
+
+/* Gold underline grow */
+@keyframes underline-grow {
+  0% {
+    transform: scaleX(0);
+    opacity: 0
+  }
+
+  100% {
+    transform: scaleX(1);
+    opacity: 1
+  }
+}
+
+/* Stat number count glow pulse */
+@keyframes stat-glow {
+
+  0%,
+  100% {
+    text-shadow: none
+  }
+
+  50% {
+    text-shadow: 0 0 18px oklch(.8 .16 85 / .55)
+  }
+}
+
+/* Floating WhatsApp pulse ring */
+@keyframes wa-pulse {
+  0% {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .25), 0 0 0 0 rgba(22, 163, 74, .5), 0 0 0 0 rgba(245, 158, 11, .4);
+  }
+
+  50% {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .3), 0 0 0 16px rgba(22, 163, 74, 0), 0 0 0 24px rgba(245, 158, 11, 0);
+  }
+
+  100% {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .25), 0 0 0 0 rgba(22, 163, 74, 0), 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+/* Animated Golden Gradient Text */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #d97706 0%, #f59e0b 30%, #fef08a 55%, #b45309 85%, #fbbf24 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gold-text-shimmer 3s ease infinite;
+}
+
+@keyframes gold-text-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Mobile menu slide-down */
+@keyframes menu-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+/* Brand card shimmer on hover */
+@keyframes card-shimmer {
+  0% {
+    background-position: -200% 0
+  }
+
+  100% {
+    background-position: 200% 0
+  }
+}
+
+/* ── HERO ANIMATIONS ──────────────────────────────────────────────────────── */
+
+.hero-content h1 {
+  animation: hero-fade-up .75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: .1s
+}
+
+.hero-content .hero-rule {
+  animation: hero-rule-grow .6s cubic-bezier(0.22, 1, 0.36, 1) .45s both
+}
+
+.hero-content h2 {
+  animation: hero-fade-up .65s cubic-bezier(0.22, 1, 0.36, 1) .5s both
+}
+
+.hero-content .hero-model {
+  animation: hero-fade-up .6s cubic-bezier(0.22, 1, 0.36, 1) .65s both
+}
+
+.hero-content .hero-description {
+  animation: hero-fade-up .6s cubic-bezier(0.22, 1, 0.36, 1) .78s both
+}
+
+.hero-content .hero-actions {
+  animation: hero-fade-up .6s cubic-bezier(0.22, 1, 0.36, 1) .9s both
+}
+
+/* ── HEADER / NAV ANIMATIONS ─────────────────────────────────────────────── */
+
+.site-header {
+  animation: nav-drop .5s cubic-bezier(0.22, 1, 0.36, 1) both
+}
+
+/* Logo hover — shimmer sweep */
+.site-header a:first-child img {
+  transition: transform .3s cubic-bezier(0.34, 1.56, 0.64, 1), filter .3s ease
+}
+
+.site-header a:first-child:hover img {
+  transform: scale(1.04);
+  filter: drop-shadow(0 2px 8px oklch(.64 .145 78 / .35))
+}
+
+/* Nav links underline slide-in */
+.desktop-nav a {
+  position: relative;
+  transition: color .2s ease
+}
+
+.desktop-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s cubic-bezier(0.22, 1, 0.36, 1)
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a[data-status=active]::after {
+  transform: scaleX(1)
+}
+
+/* Mobile menu entrance */
+.mobile-nav {
+  animation: menu-slide .3s cubic-bezier(0.22, 1, 0.36, 1) both
+}
+
+/* ── MOBILE-CONTACT BAR ENTRANCE ─────────────────────────────────────────── */
+.mobile-contact {
+  animation: hero-fade-up .4s cubic-bezier(0.22, 1, 0.36, 1) .3s both
+}
+
+/* ── BUTTON HOVER EFFECTS ────────────────────────────────────────────────── */
+
+.button-gold,
+[class*="bg-amber"] {
+  transition: transform .2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow .2s ease,
+    filter .2s ease;
+  position: relative;
+  overflow: hidden
+}
+
+.button-gold:hover,
+[class*="bg-amber"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px oklch(.64 .145 78 / .32)
+}
+
+.button-gold:active,
+[class*="bg-amber"]:active {
+  transform: translateY(0) scale(.97)
+}
+
+/* ── FLOATING WHATSAPP ───────────────────────────────────────────────────── */
+
+.floating-whatsapp {
+  animation: wa-pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) 2s infinite
+}
+
+/* ── PRODUCT CARDS ───────────────────────────────────────────────────────── */
+
+.product-card {
+  transition: border-color .22s ease,
+    transform .28s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow .22s ease
+}
+
+.product-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 12px 30px oklch(.64 .145 78 / .18)
+}
+
+/* ── BRAND CARDS ─────────────────────────────────────────────────────────── */
+
+.brand-globe-card {
+  transition: box-shadow .25s ease,
+    border-color .25s ease,
+    transform .28s cubic-bezier(0.34, 1.56, 0.64, 1)
+}
+
+.brand-globe-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .09);
+  border-color: oklch(.8 .12 82)
+}
+
+/* ── STATS SECTION ───────────────────────────────────────────────────────── */
+
+.stat-value-animated {
+  animation: stat-glow 2s ease 0.5s 1
+}
+
+/* ── SECTION REVEAL HELPERS ──────────────────────────────────────────────── */
+
+/* Applied via JS intersection observer in scroll-reveal.tsx */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity .7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform .7s cubic-bezier(0.22, 1, 0.36, 1)
+}
+
+.reveal-hidden.is-visible {
+  opacity: 1;
+  transform: translateY(0)
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity .7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform .7s cubic-bezier(0.22, 1, 0.36, 1)
+}
+
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0)
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity .7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform .7s cubic-bezier(0.22, 1, 0.36, 1)
+}
+
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0)
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity .65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform .65s cubic-bezier(0.22, 1, 0.36, 1)
+}
+
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1)
+}
+
+/* Stagger delays for child groups */
+.stagger>*:nth-child(1) {
+  transition-delay: 0ms
+}
+
+.stagger>*:nth-child(2) {
+  transition-delay: 80ms
+}
+
+.stagger>*:nth-child(3) {
+  transition-delay: 160ms
+}
+
+.stagger>*:nth-child(4) {
+  transition-delay: 240ms
+}
+
+.stagger>*:nth-child(5) {
+  transition-delay: 320ms
+}
+
+.stagger>*:nth-child(6) {
+  transition-delay: 400ms
+}
+
+.stagger>*:nth-child(7) {
+  transition-delay: 480ms
+}
+
+.stagger>*:nth-child(8) {
+  transition-delay: 560ms
+}
+
+/* ── CONTACT BAND IMAGE ───────────────────────────────────────────────────── */
+
+.about-page-grid img {
+  transition: transform .4s ease;
+}
+
+.about-page-grid img:hover {
+  transform: scale(1.02)
+}
+
+/* ── LINK HOVER MICRO-INTERACTIONS ──────────────────────────────────────── */
+
+.text-link {
+  transition: color .2s ease, gap .2s ease
+}
+
+.text-link:hover {
+  gap: 9px
+}
+
+.text-link svg {
+  transition: transform .2s cubic-bezier(0.34, 1.56, 0.64, 1)
+}
+
+.text-link:hover svg {
+  transform: translateX(4px)
+}
+
+/* ── TRUST BAR BADGE HOVER ───────────────────────────────────────────────── */
+
+.trust-badge {
+  transition: color .2s ease, transform .25s cubic-bezier(0.34, 1.56, 0.64, 1)
+}
+
+.trust-badge:hover {
+  transform: translateY(-2px)
+}
+
+/* ── SECTION DIVIDER GOLD LINE ANIMATE ON ENTER ──────────────────────────── */
+
+.section-divider {
+  border-top: 1px solid var(--gold-line)
+}
+
+/* ── VISION/MISSION CARD HOVER ───────────────────────────────────────────── */
+
+.vision-mission>div {
+  transition: transform .28s cubic-bezier(0.22, 1, 0.36, 1)
+}
+
+.vision-mission>div:hover {
+  transform: translateY(-3px)
+}
+
+/* hero-content child elements handle their own staggered animations */
 
 @media(min-width:1500px) {
   .hero {

@@ -42,6 +42,7 @@ import fasteners from '@/assets/fasteners.webp';
 import warehouse from '@/assets/warehouse.webp';
 import keerthiLogo from '@/assets/keerthi-logo.svg';
 import { trackEvent } from '@/lib/analytics';
+import { Reveal, AnimatedCounter } from './scroll-reveal';
 
 export function Logo({ className = "h-10 sm:h-12" }: { className?: string }) {
     return (
@@ -218,34 +219,52 @@ export function CustomerSegmentsSection() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {customerSegments.map((seg, idx) => (
-                        <div
-                            key={idx}
-                            className="rounded-xl border border-slate-200 bg-slate-50/50 p-6 hover:border-amber-400 hover:bg-white hover:shadow-md transition-all group"
-                        >
-                            <div className="flex items-center justify-between mb-3">
-                                <span className="text-xs font-extrabold text-amber-600 bg-amber-500/10 px-2.5 py-1 rounded">
-                                    0{idx + 1}
-                                </span>
-                                <Users className="h-5 w-5 text-slate-400 group-hover:text-amber-500 transition-colors" />
-                            </div>
-                            <h3 className="text-lg font-bold text-slate-900 font-display">
-                                {seg.title}
-                            </h3>
-                            <h4 className="text-xs font-semibold text-amber-700 mb-2">
-                                {seg.subtitle}
-                            </h4>
-                            <p className="text-xs text-slate-600 leading-relaxed">
-                                {seg.description}
-                            </p>
-                            <button
-                                onClick={() => openQuoteModal()}
-                                className="mt-4 inline-flex items-center text-xs font-bold text-amber-600 hover:text-amber-700 cursor-pointer"
+                    {customerSegments.map((seg, idx) => {
+                        const getSegmentWaUrl = () => {
+                            let text = `Hello Birla K Abraham (Keerthi Agencies),\n\nI am contacting you regarding: *${seg.title}* (${seg.subtitle}).\n\nPlease share details and rates for hardware & building materials. Thank you!`;
+                            return `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(text)}`;
+                        };
+                        return (
+                            <div
+                                key={idx}
+                                className="rounded-xl border border-slate-200 bg-slate-50/50 p-6 hover:border-amber-400 hover:bg-white hover:shadow-md transition-all group flex flex-col justify-between"
                             >
-                                Request Quote <ArrowRight className="ml-1 h-3.5 w-3.5" />
-                            </button>
-                        </div>
-                    ))}
+                                <div>
+                                    <div className="flex items-center justify-between mb-3">
+                                        <span className="text-xs font-extrabold text-amber-600 bg-amber-500/10 px-2.5 py-1 rounded">
+                                            0{idx + 1}
+                                        </span>
+                                        <Users className="h-5 w-5 text-slate-400 group-hover:text-amber-500 transition-colors" />
+                                    </div>
+                                    <h3 className="text-lg font-bold text-slate-900 font-display">
+                                        {seg.title}
+                                    </h3>
+                                    <h4 className="text-xs font-semibold text-amber-700 mb-2">
+                                        {seg.subtitle}
+                                    </h4>
+                                    <p className="text-xs text-slate-600 leading-relaxed">
+                                        {seg.description}
+                                    </p>
+                                </div>
+                                <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center justify-between gap-2">
+                                    <button
+                                        onClick={() => openQuoteModal()}
+                                        className="inline-flex items-center text-xs font-bold text-amber-600 hover:text-amber-700 cursor-pointer"
+                                    >
+                                        Request Quote <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                                    </button>
+                                    <a
+                                        href={getSegmentWaUrl()}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1 text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded shadow-xs transition-all"
+                                    >
+                                        <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
@@ -379,16 +398,18 @@ export function VerifiedStatistics() {
     return (
         <section className="py-10 bg-amber-500 text-slate-950">
             <div className="site-width">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center stagger">
                     {business.verifiedStats.map((stat, i) => (
-                        <div key={i} className="p-3">
-                            <div className="text-3xl sm:text-4xl font-extrabold font-display">
-                                {stat.value}{stat.suffix}
+                        <Reveal key={i} variant="scale" delay={i * 90}>
+                            <div className="p-3">
+                                <div className="text-3xl sm:text-4xl font-extrabold font-display">
+                                    <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                                </div>
+                                <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-950 mt-1">
+                                    {stat.label}
+                                </div>
                             </div>
-                            <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-950 mt-1">
-                                {stat.label}
-                            </div>
-                        </div>
+                        </Reveal>
                     ))}
                 </div>
             </div>
@@ -400,29 +421,25 @@ export function VerifiedStatistics() {
 export function TrustedBrands() {
     return (
         <div className="brand-globe-grid">
-            {trustedBrands.map((b) => (
-                <div
-                    key={b.name}
-                    className="brand-globe-card"
-                >
-                    <div className="brand-globe-inner">
-                        {/* Logo */}
-                        <div className="brand-globe-logo">
-                            <img
-                                src={b.logoUrl}
-                                alt={b.alt}
-                                width={150}
-                                height={40}
-                                loading="lazy"
-                            />
-                        </div>
-
-                        {/* Meta */}
-                        <div className="brand-globe-meta">
-                            <div className="brand-globe-category">{b.category}</div>
+            {trustedBrands.map((b, i) => (
+                <Reveal key={b.name} variant="scale" delay={Math.min(i * 40, 400)}>
+                    <div className="brand-globe-card" style={{ height: '100%' }}>
+                        <div className="brand-globe-inner">
+                            <div className="brand-globe-logo">
+                                <img
+                                    src={b.logoUrl}
+                                    alt={b.alt}
+                                    width={150}
+                                    height={40}
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div className="brand-globe-meta">
+                                <div className="brand-globe-category">{b.category}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Reveal>
             ))}
         </div>
     );
@@ -434,27 +451,31 @@ export function BrandsBand() {
     return (
         <section className="py-12 bg-white border-b border-slate-200">
             <div className="site-width">
-                <div className="text-center max-w-xl mx-auto mb-8">
-                    <span className="text-xs font-bold uppercase tracking-widest text-amber-600">
-                        Official Distribution Network
-                    </span>
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-1">
-                        LEADING MANUFACTURER PARTNERS
-                    </h2>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-2">
-                        Direct distribution relationships with India's most trusted manufacturers and building material brands.
-                    </p>
-                </div>
+                <Reveal variant="up">
+                    <div className="text-center max-w-xl mx-auto mb-8">
+                        <span className="text-xs font-bold uppercase tracking-widest text-amber-600">
+                            Official Distribution Network
+                        </span>
+                        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-1">
+                            LEADING MANUFACTURER PARTNERS
+                        </h2>
+                        <p className="text-xs sm:text-sm text-slate-600 mt-2">
+                            Direct distribution relationships with India's most trusted manufacturers and building material brands.
+                        </p>
+                    </div>
+                </Reveal>
 
                 <TrustedBrands />
 
-                <div className="text-center mt-8">
-                    <Button variant="outline" asChild size="sm" className="font-bold">
-                        <Link to="/brands">
-                            View Complete Brand List <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                        </Link>
-                    </Button>
-                </div>
+                <Reveal variant="up" delay={200}>
+                    <div className="text-center mt-8">
+                        <Button variant="outline" asChild size="sm" className="font-bold">
+                            <Link to="/brands">
+                                View Complete Brand List <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                            </Link>
+                        </Button>
+                    </div>
+                </Reveal>
             </div>
         </section>
     );
@@ -467,72 +488,76 @@ export function BlogHighlights() {
     return (
         <section className="py-12 bg-slate-50 border-b border-slate-200">
             <div className="site-width">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4">
-                    <div>
-                        <span className="text-xs font-bold uppercase tracking-widest text-amber-600">
-                            Expert Knowledge & Technical Guides
-                        </span>
-                        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-1">
-                            KEERTHI INSIGHTS & ARTICLES
-                        </h2>
+                <Reveal variant="up">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4">
+                        <div>
+                            <span className="text-xs font-bold uppercase tracking-widest text-amber-600">
+                                Expert Knowledge & Technical Guides
+                            </span>
+                            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-1">
+                                KEERTHI INSIGHTS & ARTICLES
+                            </h2>
+                        </div>
+                        <Link
+                            to="/blog"
+                            className="text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1"
+                        >
+                            Explore All Insights <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
                     </div>
-                    <Link
-                        to="/blog"
-                        className="text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1"
-                    >
-                        Explore All Insights <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                </div>
+                </Reveal>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {posts.map(post => (
-                        <article
-                            key={post.id}
-                            className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-xs hover:shadow-md hover:border-amber-400 transition-all flex flex-col group"
-                        >
-                            <div className="relative h-44 overflow-hidden bg-slate-100">
-                                <img
-                                    src={post.featuredImage}
-                                    alt={post.imageAlt}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                                    loading="lazy"
-                                />
-                                <span className="absolute top-3 left-3 text-[10px] font-extrabold uppercase bg-amber-500 text-slate-950 px-2.5 py-1 rounded shadow">
-                                    {post.category}
-                                </span>
-                            </div>
-                            <div className="p-5 flex-1 flex flex-col justify-between">
-                                <div>
-                                    <div className="flex items-center text-[11px] text-slate-500 gap-3 mb-2">
-                                        <span className="flex items-center gap-1">
-                                            <Clock className="h-3 w-3" /> {post.readingTime}
-                                        </span>
-                                        <span>•</span>
-                                        <span>{post.publishedDate}</span>
-                                    </div>
-                                    <h3 className="font-bold text-base text-slate-900 line-clamp-2 group-hover:text-amber-600 transition-colors font-display">
-                                        <Link to="/blog/$slug" params={{ slug: post.slug }}>
-                                            {post.title}
-                                        </Link>
-                                    </h3>
-                                    <p className="text-xs text-slate-600 line-clamp-3 mt-2">
-                                        {post.excerpt}
-                                    </p>
-                                </div>
-                                <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between">
-                                    <span className="text-[11px] font-medium text-slate-600">
-                                        By {post.author.name}
+                    {posts.map((post, i) => (
+                        <Reveal key={post.id} variant="up" delay={i * 110}>
+                            <article
+                                className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-xs hover:shadow-md hover:border-amber-400 transition-all flex flex-col group"
+                                style={{ height: '100%' }}
+                            >
+                                <div className="relative h-44 overflow-hidden bg-slate-100">
+                                    <img
+                                        src={post.featuredImage}
+                                        alt={post.imageAlt}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                        loading="lazy"
+                                    />
+                                    <span className="absolute top-3 left-3 text-[10px] font-extrabold uppercase bg-amber-500 text-slate-950 px-2.5 py-1 rounded shadow">
+                                        {post.category}
                                     </span>
-                                    <Link
-                                        to="/blog/$slug"
-                                        params={{ slug: post.slug }}
-                                        className="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1"
-                                    >
-                                        Read <ArrowRight className="h-3.5 w-3.5" />
-                                    </Link>
                                 </div>
-                            </div>
-                        </article>
+                                <div className="p-5 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <div className="flex items-center text-[11px] text-slate-500 gap-3 mb-2">
+                                            <span className="flex items-center gap-1">
+                                                <Clock className="h-3 w-3" /> {post.readingTime}
+                                            </span>
+                                            <span>•</span>
+                                            <span>{post.publishedDate}</span>
+                                        </div>
+                                        <h3 className="font-bold text-base text-slate-900 line-clamp-2 group-hover:text-amber-600 transition-colors font-display">
+                                            <Link to="/blog/$slug" params={{ slug: post.slug }}>
+                                                {post.title}
+                                            </Link>
+                                        </h3>
+                                        <p className="text-xs text-slate-600 line-clamp-3 mt-2">
+                                            {post.excerpt}
+                                        </p>
+                                    </div>
+                                    <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between">
+                                        <span className="text-[11px] font-medium text-slate-600">
+                                            By {post.author.name}
+                                        </span>
+                                        <Link
+                                            to="/blog/$slug"
+                                            params={{ slug: post.slug }}
+                                            className="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1"
+                                        >
+                                            Read <ArrowRight className="h-3.5 w-3.5" />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </article>
+                        </Reveal>
                     ))}
                 </div>
             </div>
@@ -545,32 +570,36 @@ export function FinalLeadBanner() {
     return (
         <section className="py-14 bg-slate-900 text-white border-t border-amber-500/20">
             <div className="site-width text-center max-w-2xl mx-auto space-y-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
-                    Ready to Order or Request Pricing?
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold font-display leading-tight">
-                    HAVE A REQUIREMENT? LET'S SOURCE IT.
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-300">
-                    Tell us what you need and our commercial supply team will quickly assist you with genuine brand selection, stock availability, and commercial rates.
-                </p>
-                <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
-                    <Button
-                        onClick={() => openQuoteModal()}
-                        className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-3 text-sm"
-                    >
-                        GET A QUICK QUOTE <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                    <Button
-                        asChild
-                        variant="outline"
-                        className="border-slate-700 text-white hover:bg-slate-800 px-6 py-3 text-sm"
-                    >
-                        <a href={business.whatsapp} target="_blank" rel="noopener noreferrer">
-                            <MessageCircle className="mr-2 h-4 w-4 text-emerald-400" /> Chat on WhatsApp
-                        </a>
-                    </Button>
-                </div>
+                <Reveal variant="up">
+                    <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
+                        Ready to Order or Request Pricing?
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl font-extrabold font-display leading-tight">
+                        HAVE A REQUIREMENT? LET'S SOURCE IT.
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-300">
+                        Tell us what you need and our commercial supply team will quickly assist you with genuine brand selection, stock availability, and commercial rates.
+                    </p>
+                </Reveal>
+                <Reveal variant="scale" delay={150}>
+                    <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
+                        <Button
+                            onClick={() => openQuoteModal()}
+                            className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-3 text-sm"
+                        >
+                            GET A QUICK QUOTE <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                        <Button
+                            asChild
+                            variant="outline"
+                            className="border-slate-700 text-white hover:bg-slate-800 px-6 py-3 text-sm"
+                        >
+                            <a href={business.whatsapp} target="_blank" rel="noopener noreferrer">
+                                <MessageCircle className="mr-2 h-4 w-4 text-emerald-400" /> Chat on WhatsApp
+                            </a>
+                        </Button>
+                    </div>
+                </Reveal>
             </div>
         </section>
     );
@@ -580,47 +609,51 @@ export function AboutProducts() {
     return (
         <section className="section-divider">
             <div className="site-width about-products">
-                <div className="about-side">
-                    <div className="about-copy">
-                        <h2 className="section-title">About Keerthi</h2>
-                        <h3>KEERTHI GROUP OF COMPANIES</h3>
-                        <div className="small-gold-rule" />
-                        <p>
-                            KEERTHI is a leading business focused on building materials, hardware, construction products, plumbing, electrical and home solutions. We are committed to providing quality products, trusted brands and dependable service to every customer.
-                        </p>
-                        <VisionMission />
-                    </div>
-                    <div className="construction-feature">
-                        <img
-                            src={construction}
-                            width={768}
-                            height={1024}
-                            loading="lazy"
-                            alt="Construction site with safety helmet and building plans"
-                        />
-                        <p>
-                            STRONG FOUNDATIONS
-                            <br />
-                            FOR A BETTER
-                            <br />
-                            <strong>TOMORROW</strong>
-                        </p>
-                    </div>
-                </div>
-                <div className="products-area">
-                    <div className="products-intro">
-                        <div>
-                            <h2 className="section-title">Our Products</h2>
-                            <p className="section-subtitle">
-                                Everything you need for your construction & home projects
+                <Reveal variant="right">
+                    <div className="about-side">
+                        <div className="about-copy">
+                            <h2 className="section-title">About Keerthi</h2>
+                            <h3>KEERTHI GROUP OF COMPANIES</h3>
+                            <div className="small-gold-rule" />
+                            <p>
+                                KEERTHI is a leading business focused on building materials, hardware, construction products, plumbing, electrical and home solutions. We are committed to providing quality products, trusted brands and dependable service to every customer.
+                            </p>
+                            <VisionMission />
+                        </div>
+                        <div className="construction-feature">
+                            <img
+                                src={construction}
+                                width={768}
+                                height={1024}
+                                loading="lazy"
+                                alt="Construction site with safety helmet and building plans"
+                            />
+                            <p>
+                                STRONG FOUNDATIONS
+                                <br />
+                                FOR A BETTER
+                                <br />
+                                <strong>TOMORROW</strong>
                             </p>
                         </div>
-                        <Link className="text-link" to="/products">
-                            View all <ArrowRight />
-                        </Link>
                     </div>
-                    <ProductGrid />
-                </div>
+                </Reveal>
+                <Reveal variant="left" delay={120}>
+                    <div className="products-area">
+                        <div className="products-intro">
+                            <div>
+                                <h2 className="section-title">Our Products</h2>
+                                <p className="section-subtitle">
+                                    Everything you need for your construction & home projects
+                                </p>
+                            </div>
+                            <Link className="text-link" to="/products">
+                                View all <ArrowRight />
+                            </Link>
+                        </div>
+                        <ProductGrid />
+                    </div>
+                </Reveal>
             </div>
         </section>
     );
@@ -668,50 +701,61 @@ export function DistributionBand() {
     return (
         <section className="section-divider">
             <div className="site-width distribution-band">
-                <img
-                    className="fasteners-image"
-                    src={fasteners}
-                    width={1024}
-                    height={512}
-                    loading="lazy"
-                    alt="Steel fasteners, nuts and bolts"
-                />
-                <div className="distribution-intro">
-                    <h2>
-                        HARDWARE
-                        <br />
-                        <span className="gold">DISTRIBUTION</span>
-                    </h2>
-                    <p>
-                        Supplying quality hardware and construction products to dealers, retailers, contractors and builders across Kerala.
-                    </p>
-                    <Button onClick={() => openQuoteModal('Hardware')} variant="gold">
-                        Partner With Us <ArrowRight />
-                    </Button>
-                </div>
-                <div className="distribution-lists">
-                    <h3 className="mini-title">PRODUCTS FOR DISTRIBUTION</h3>
-                    <DistributionLists />
-                </div>
-                <div className="distribution-services">
-                    <div>
-                        <h3 className="mini-title">DISTRIBUTION SERVICES</h3>
-                        <ServiceList />
+                <Reveal variant="right">
+                    <img
+                        className="fasteners-image"
+                        src={fasteners}
+                        width={1024}
+                        height={512}
+                        loading="lazy"
+                        alt="Steel fasteners, nuts and bolts"
+                        style={{ transition: 'transform .4s ease' }}
+                        onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.03)')}
+                        onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+                    />
+                </Reveal>
+                <Reveal variant="up" delay={80}>
+                    <div className="distribution-intro">
+                        <h2>
+                            HARDWARE
+                            <br />
+                            <span className="gold">DISTRIBUTION</span>
+                        </h2>
+                        <p>
+                            Supplying quality hardware and construction products to dealers, retailers, contractors and builders across Kerala.
+                        </p>
+                        <Button onClick={() => openQuoteModal('Hardware')} variant="gold">
+                            Partner With Us <ArrowRight />
+                        </Button>
                     </div>
-                    <div className="network">
-                        <Network aria-hidden="true" />
+                </Reveal>
+                <Reveal variant="up" delay={160}>
+                    <div className="distribution-lists">
+                        <h3 className="mini-title">PRODUCTS FOR DISTRIBUTION</h3>
+                        <DistributionLists />
+                    </div>
+                </Reveal>
+                <Reveal variant="up" delay={240}>
+                    <div className="distribution-services">
                         <div>
-                            <h3>OUR NETWORK</h3>
-                            <p>
-                                Hardware shops · Dealers · Contractors
-                                <br />
-                                Builders · Fabricators · Plumbers
-                                <br />
-                                Electricians · Retailers
-                            </p>
+                            <h3 className="mini-title">DISTRIBUTION SERVICES</h3>
+                            <ServiceList />
+                        </div>
+                        <div className="network">
+                            <Network aria-hidden="true" />
+                            <div>
+                                <h3>OUR NETWORK</h3>
+                                <p>
+                                    Hardware shops · Dealers · Contractors
+                                    <br />
+                                    Builders · Fabricators · Plumbers
+                                    <br />
+                                    Electricians · Retailers
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Reveal>
             </div>
         </section>
     );
@@ -746,24 +790,33 @@ export function RetailBand() {
     return (
         <section className="section-divider">
             <div className="site-width retail-band">
-                <img
-                    src={warehouse}
-                    className="warehouse-image"
-                    width={1024}
-                    height={512}
-                    loading="lazy"
-                    alt="Building materials warehouse shelving"
-                />
-                <div className="retail-copy">
-                    <h2>RETAIL & WHOLESALE</h2>
-                    <p>Serving homeowners, contractors, builders, plumbers, electricians, fabricators and more.</p>
-                    <Button asChild variant="gold" size="sm">
-                        <Link to="/products">
-                            Explore Our Products <ArrowRight />
-                        </Link>
-                    </Button>
-                </div>
-                <WhyChoose />
+                <Reveal variant="right">
+                    <img
+                        src={warehouse}
+                        className="warehouse-image"
+                        width={1024}
+                        height={512}
+                        loading="lazy"
+                        alt="Building materials warehouse shelving"
+                        style={{ transition: 'transform .4s ease' }}
+                        onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.03)')}
+                        onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+                    />
+                </Reveal>
+                <Reveal variant="up" delay={100}>
+                    <div className="retail-copy">
+                        <h2>RETAIL & WHOLESALE</h2>
+                        <p>Serving homeowners, contractors, builders, plumbers, electricians, fabricators and more.</p>
+                        <Button asChild variant="gold" size="sm">
+                            <Link to="/products">
+                                Explore Our Products <ArrowRight />
+                            </Link>
+                        </Button>
+                    </div>
+                </Reveal>
+                <Reveal variant="left" delay={200}>
+                    <WhyChoose />
+                </Reveal>
             </div>
         </section>
     );
@@ -781,6 +834,7 @@ export function ContactBand() {
                 </div>
                 <div className="contact-info">
                     <h2>CONTACT KEERTHI AGENCIES</h2>
+                    <p className="text-xs font-semibold text-amber-600 mb-2">Proprietor: {business.proprietor}</p>
                     <div className="contact-details">
                         <div>
                             {business.phones.map((p, i) => (
